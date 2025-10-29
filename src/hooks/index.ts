@@ -1,0 +1,1 @@
+export { usePersonalDetails } from "./usePersonalDetails";
