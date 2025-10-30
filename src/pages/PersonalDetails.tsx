@@ -1,18 +1,22 @@
+import { PersonalDetailsForm } from "@/components/forms";
 import { FormProvider } from "react-hook-form";
 import { usePersonalDetails } from "../hooks";
-import { Input } from "@/components/ui/input";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 const PersonalDetails: React.FC = () => {
-  const { formMethods } = usePersonalDetails();
-  const { register } = formMethods;
+  const { formMethods, onSubmit } = usePersonalDetails();
   return (
-    <div>
-      <h1>Personal Details</h1>
-      <FormProvider {...formMethods}>
-        <form>
-          <Input {...register("firstName")} placeholder="First Name" />
-        </form>
-      </FormProvider>
+    <div className="container mx-auto max-w-1/2">
+      <Card className="w-full">
+        <CardHeader>Personal Details</CardHeader>
+        <CardContent>
+          <FormProvider {...formMethods}>
+            <form onSubmit={formMethods.handleSubmit(onSubmit)}>
+              <PersonalDetailsForm />
+            </form>
+          </FormProvider>
+        </CardContent>
+      </Card>
     </div>
   );
 };

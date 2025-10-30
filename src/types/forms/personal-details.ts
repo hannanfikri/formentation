@@ -1,4 +1,4 @@
-export type PersonalDetailsForm = {
+export type PersonalDetailsFormData= {
     firstName: string;
     lastName: string;
     email: string;

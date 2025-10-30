@@ -1,4 +1,4 @@
-export type AddressDetailsForm = {
+export type AddressDetailsFormData = {
     address1: string;
     address2: string;
     city: string;

@@ -1,2 +1,2 @@
-export type { PersonalDetailsForm } from "./personal-details";
-export type { AddressDetailsForm } from "./address-details";
+export type { PersonalDetailsFormData } from "./personal-details";
+export type { AddressDetailsFormData } from "./address-details";
