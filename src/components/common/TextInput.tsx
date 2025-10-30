@@ -9,14 +9,14 @@ type TextInputProps = React.InputHTMLAttributes<HTMLInputElement> & {
 export const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
   ({ label, ...props }, ref) => {
     return (
-      <>
+      <div className="flex flex-col gap-2">
         <Label>{label}</Label>
         <Input
           className="border border-gray-300 rounded-md p-2"
           ref={ref}
           {...props}
         />
-      </>
+      </div>
     );
   }
 );
