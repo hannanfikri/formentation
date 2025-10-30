@@ -1,20 +1,18 @@
+import { personalDetailsSchema } from "@/schemas";
+import { useFormStore } from "@/stores";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import type { PersonalDetailsFormData } from "../types/forms";
-import { useFormStore } from "@/stores";
-import { useEffect } from "react";
 
 export const usePersonalDetails = () => {
   const formStore = useFormStore((state) => state.forms.personalDetails);
   const formMethods = useForm<PersonalDetailsFormData>({
     defaultValues: formStore,
+    resolver: zodResolver(personalDetailsSchema),
   });
   const setPersonalDetails = useFormStore(
     (state) => state.setters.setPersonalDetails
   );
-
-  useEffect(() => {
-    console.log("Loaded personal details from store:", formStore);
-  }, [formStore])
 
   const onSubmit = (formData: PersonalDetailsFormData) => {
     console.log("Personal Details Submitted:", formData);

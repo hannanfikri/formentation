@@ -1,0 +1,1 @@
+export { personalDetailsSchema, type PersonalDetails } from "./personal-details";
