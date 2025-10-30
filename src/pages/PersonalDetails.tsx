@@ -13,18 +13,22 @@ const PersonalDetails: React.FC = () => {
         Personal Details Form
       </CardHeader>
       <CardContent>
-        <div className="flex flex-col gap-8">
-          <FormProvider {...formMethods}>
-            <form onSubmit={formMethods.handleSubmit(onSubmit)}>
+        <FormProvider {...formMethods}>
+          <form onSubmit={formMethods.handleSubmit(onSubmit)}>
+            <div className="flex flex-col gap-8">
               <PersonalDetailsForm />
 
-              <Button size={"lg"} type="submit" className="flex gap-2 mx-auto cursor-pointer">
-              <span>Next Page</span>
-              <ArrowRightIcon />
-            </Button>
-            </form>
-          </FormProvider>
-        </div>
+              <Button
+                size={"lg"}
+                type="submit"
+                className="flex gap-2 mx-auto cursor-pointer"
+              >
+                <span>Next Page</span>
+                <ArrowRightIcon />
+              </Button>
+            </div>
+          </form>
+        </FormProvider>
       </CardContent>
     </Card>
   );
