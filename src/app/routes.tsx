@@ -7,7 +7,7 @@ import { Layout } from "@/components/layout";
 const AppRoutes: React.FC = () => (
   <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
     <BrowserRouter>
-      <Layout className="container mx-auto md:max-w-md max-w-xs flex items-center justify-center min-h-screen">
+      <Layout className="container mx-auto md:max-w-md max-w-xs flex items-center justify-center">
         <Routes>
           <Route
             path="/"
