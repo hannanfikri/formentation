@@ -17,12 +17,12 @@ const PersonalDetails: React.FC = () => {
           <FormProvider {...formMethods}>
             <form onSubmit={formMethods.handleSubmit(onSubmit)}>
               <PersonalDetailsForm />
-            </form>
 
-            <Button size={"lg"} type="submit" className="flex gap-2 mx-auto cursor-pointer">
+              <Button size={"lg"} type="submit" className="flex gap-2 mx-auto cursor-pointer">
               <span>Next Page</span>
               <ArrowRightIcon />
             </Button>
+            </form>
           </FormProvider>
         </div>
       </CardContent>
