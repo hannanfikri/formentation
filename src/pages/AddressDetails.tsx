@@ -25,7 +25,7 @@ const AddressDetails: React.FC = () => {
                     <span>Back</span>
                   </div>
                 </Button>
-                <Button type="submit">
+                <Button type="submit" className="cursor-pointer">
                   <span>Submit</span>
                 </Button>
               </div>
