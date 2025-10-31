@@ -8,6 +8,7 @@ export const AddressDetailsForm = () => {
         <div className="flex flex-col gap-5">
           <TextInput
             {...register("address1")}
+            autoComplete="street-address"
             placeholder="Jalan Alamat..."
             label="Address 1"
             error={errors.address1?.message}
