@@ -29,6 +29,7 @@ export const PersonalDetailsForm = () => {
         {...register("phoneNumber")}
         placeholder="011-1111 1111..."
         label="Phone Number"
+        inputGroup="+60"
         error={errors.phoneNumber?.message}
       />
     </div>
