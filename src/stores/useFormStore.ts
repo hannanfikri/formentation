@@ -11,6 +11,13 @@ export const useFormStore = create<FormStore>()(
           lastName: "",
           email: "",
         },
+        addressDetails: {
+          address1: "",
+          address2: "",
+          city: "",
+          state: "",
+          postalCode: "",
+        },
       },
       setters: {
         setPersonalDetails: (details: FormStore["forms"]["personalDetails"]) =>
@@ -18,6 +25,13 @@ export const useFormStore = create<FormStore>()(
             forms: {
               ...state.forms,
               personalDetails: details,
+            },
+          })),
+        setAddressDetails: (details: FormStore["forms"]["addressDetails"]) =>
+          set((state: FormStore) => ({
+            forms: {
+              ...state.forms,
+              addressDetails: details,
             },
           })),
       },

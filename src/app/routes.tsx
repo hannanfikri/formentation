@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import PersonalDetails from "../pages/PersonalDetails";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Layout } from "@/components/layout";
+import AddressDetails from "@/pages/AddressDetails";
 
 const AppRoutes: React.FC = () => (
   <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
@@ -14,6 +15,7 @@ const AppRoutes: React.FC = () => (
             element={<Navigate to="/personal-details" replace />}
           />
           <Route path="/personal-details" element={<PersonalDetails />} />
+          <Route path="/address-details" element={<AddressDetails />} />
           {/* Add more routes here */}
         </Routes>
       </Layout>
