@@ -1,3 +1,4 @@
+import { dobToAge } from "@/helper/personal-details";
 import { personalDetailsSchema, type PersonalDetails } from "@/schemas";
 import { useFormStore } from "@/stores";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -8,7 +9,10 @@ import type { PersonalDetailsFormData } from "../types/forms";
 export const usePersonalDetails = () => {
   const formStore = useFormStore((state) => state.forms.personalDetails);
   const formMethods = useForm<PersonalDetails>({
-    defaultValues: formStore,
+    defaultValues: {
+      ...formStore,
+      age: dobToAge(formStore.dob).toString(),
+    },
     resolver: zodResolver(personalDetailsSchema),
   });
   const navigate = useNavigate();

@@ -2,12 +2,14 @@ import type { PersonalDetailsFormData } from "@/types/forms";
 import { Controller, useFormContext } from "react-hook-form";
 import { TextInput } from "../common/TextInput";
 import { DatePicker } from "../common";
+import { dobToAge } from "@/helper/personal-details";
 
 export const PersonalDetailsForm = () => {
   const {
     register,
     formState: { errors },
     control,
+    setValue,
   } = useFormContext<PersonalDetailsFormData>();
   return (
     <div className="flex flex-col gap-5">
@@ -44,9 +46,19 @@ export const PersonalDetailsForm = () => {
           <DatePicker
             label="Date of Birth"
             defValue={new Date(value)}
-            onChange={onChange}
+            onChange={() => {
+              onChange(value);
+              setValue("age", dobToAge(value).toString());
+            }}
           />
         )}
+      />
+      <TextInput
+        {...register("age")}
+        disabled
+        label="Age"
+        placeholder="Enter Date of Birth to get age"
+        error={errors.age?.message}
       />
     </div>
   );

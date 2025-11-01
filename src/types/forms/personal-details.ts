@@ -4,5 +4,5 @@ export type PersonalDetailsFormData = {
   email: string;
   phoneNumber: string;
   dob: string;
-  age: number | undefined;
+  age: string;
 };

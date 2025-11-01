@@ -12,7 +12,7 @@ export const useFormStore = create<FormStore>()(
           email: "",
           phoneNumber: "",
           dob: new Date().toISOString().split('T')[0],
-          age: undefined,
+          age: "",
         },
         addressDetails: {
           address1: "",

@@ -11,7 +11,13 @@ export const personalDetailsSchema = z.object({
     .min(10, "Phone number must be at least 10 digits")
     .max(11, "Phone number must be at most 11 digits"),
   dob: z.string().min(1, "Date of birth is required"),
-  age: z.number().min(0, "Age must be a positive number").optional(),
+  age: z
+  .string()
+  .min(1, "Age is required")
+  .max(3, "Age is invalid")
+  .refine((val) => /^[1-9][0-9]{0,2}$/.test(val), {
+    message: "Age is invalid",
+  }),
 });
 
 export const addressDetailsSchema = z.object({
