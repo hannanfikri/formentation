@@ -10,6 +10,8 @@ export const personalDetailsSchema = z.object({
     .regex(/^\d+$/, "Phone number must contain only digits")
     .min(10, "Phone number must be at least 10 digits")
     .max(11, "Phone number must be at most 11 digits"),
+  dob: z.string().min(1, "Date of birth is required"),
+  age: z.number().min(0, "Age must be a positive number").optional(),
 });
 
 export const addressDetailsSchema = z.object({

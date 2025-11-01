@@ -1,9 +1,14 @@
 import type { PersonalDetailsFormData } from "@/types/forms";
-import { useFormContext } from "react-hook-form";
+import { Controller, useFormContext } from "react-hook-form";
 import { TextInput } from "../common/TextInput";
+import { DatePicker } from "../common";
 
 export const PersonalDetailsForm = () => {
-  const { register, formState: { errors } } = useFormContext<PersonalDetailsFormData>();
+  const {
+    register,
+    formState: { errors },
+    control,
+  } = useFormContext<PersonalDetailsFormData>();
   return (
     <div className="flex flex-col gap-5">
       <TextInput
@@ -31,6 +36,17 @@ export const PersonalDetailsForm = () => {
         label="Phone Number"
         inputGroup="+60"
         error={errors.phoneNumber?.message}
+      />
+      <Controller
+        name="dob"
+        control={control}
+        render={({ field: { value, onChange } }) => (
+          <DatePicker
+            label="Date of Birth"
+            defValue={new Date(value)}
+            onChange={onChange}
+          />
+        )}
       />
     </div>
   );
